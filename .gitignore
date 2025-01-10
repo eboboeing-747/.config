@@ -1,0 +1,10 @@
+*
+!.gitignore
+!nvim/
+!nvim/**
+!starship
+!starship/**
+!neofetch
+!neofetch/**
+!ghostty
+!ghostty/**
