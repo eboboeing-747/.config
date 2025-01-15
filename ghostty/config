@@ -7,6 +7,7 @@ background-opacity = 0.75
 
 font-family = JetBrainsMono Nerd Font Mono
 font-size = 13
+font-feature = -calt
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
