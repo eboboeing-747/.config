@@ -8,3 +8,5 @@
 !neofetch/**
 !ghostty
 !ghostty/**
+!waybar
+!waybar/**
