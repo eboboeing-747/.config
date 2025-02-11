@@ -1,0 +1,123 @@
+# ~/.config/starship.toml
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Select palette
+palette = 'bind-neon'
+
+format = """\
+[](fg:dir-bg)\
+[  ](bg:dir-bg fg:dir-fg)\
+$directory\
+[](bg:git-branch-bg fg:dir-bg)\
+$git_branch\
+[](bg:git-status-bg fg:git-branch-bg)\
+$git_status\
+[](fg:git-status-bg) \
+"""
+
+# Change the default prompt characters
+[character]
+success_symbol = "[󱦰](238)"
+error_symbol = "[󱦰](238)"
+
+[palettes.bind-neon]
+dir-bg = '#1D2B53'        # navy
+dir-fg = '#ffffff'        # white
+git-branch-bg = '#3E065F' # maroon
+git-branch-fg = '#ffffff' # white
+git-status-bg = '#570530' # red
+git-status-fg = '#ffffff' # black
+red = 'F90716'            # red
+
+[palettes.bind-light]
+dir-bg = '#003161'        # navy
+dir-fg = '#ffffff'        # white
+git-branch-bg = '#006a67' # teal
+git-branch-fg = '#ffffff' # white
+git-status-bg = '#fff4b7' # yellow
+git-status-fg = '#000000' # black
+
+[palettes.bind-cold]
+dir-bg = '#211951'        # navy
+dir-fg = '#ffffff'        # white
+git-branch-bg = '#836fff' # purple
+git-branch-fg = '#ffffff' # white
+git-status-bg = '#15f5ba' # mint
+git-status-fg = '#000000' # black
+
+[palettes.bind-pastel]
+dir-bg = '#8174a0'        # dark-purple
+dir-fg = '#ffffff'        # white
+git-branch-bg = '#a888b5' # purple
+git-branch-fg = '#ffffff' # white
+git-status-bg = '#efb6c8' # pink
+git-status-fg = '#000000' # black
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = true  # disable in powershell
+show_always = false
+
+[directory]
+style='bold bg:dir-bg fg:dir-fg'
+read_only_style='bold bg:dir-bg fg:red'
+home_symbol = "  ~"
+read_only = "  "
+format = "[$path ]($style)[$read_only]($style)"
+
+[git_branch]
+style='bold bg:git-branch-bg fg:git-branch-fg'
+symbol = "  "
+format = "[ $symbol$branch ]($style)"
+# truncation_length = 4
+# truncation_symbol = "…/"
+
+[git_status]
+style='bold bg:git-status-bg fg:git-status-fg'
+format = '[ $all_status$ahead_behind]($style)'
+conflicted = "󰞇  "
+up_to_date = "  "
+untracked = "  "
+ahead = "󱦲${count} "
+diverged = "󰹺󱦲${ahead_count}󱦳${behind_count} "
+behind = "󱦳${count} "
+stashed = "  "
+modified = "󰷫  "
+staged = '[++\($count\) ](style)'
+renamed = "󰏫  "
+deleted = "  "
+
+[terraform]
+format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+
+[vagrant]
+format = "via [ vagrant $version]($style) "
+
+[docker_context]
+format = "via [ $context](bold blue) "
+
+[helm]
+format = "via [ $version](bold purple) "
+
+[python]
+symbol = " "
+python_binary = "python3"
+
+[nodejs]
+format = "via [ $version](bold green) "
+disabled = true
+
+[ruby]
+format = "via [ $version]($style) "
+
+[kubernetes]
+format = 'on [ $context\($namespace\)](bold purple) '
+disabled = false
+
+[kubernetes.context_aliases]
+"clcreative-k8s-staging" = "cl-k8s-staging"
+"clcreative-k8s-production" = "cl-k8s-prod"

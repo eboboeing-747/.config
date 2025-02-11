@@ -8,48 +8,43 @@
 // by Stephan Raabe (2023) 
 // ----------------------------------------------------- 
 //
+
 {
     // General Settings
     "layer": "top",
-    "margin-top": 0,
+    "margin-top": 10,
+    "margin-left": 20,
+    "margin-right": 20,    
     "margin-bottom": 0,
-    "layer": "top",
-    "margin-left": 0,
-    "margin-right": 0,    
     "spacing": 0,
+    "name": "hyprland-default-laptop",
+    "reload_style_on_change": true,
 
     // Load Modules
     "include": ["~/.config/waybar/modules.json"],
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
-        "group/settings",
-        "wlr/taskbar",
-        "group/quicklinks",
-        "hyprland/window",
-        "custom/empty"
+        "hyprland/workspaces",
+	"hyprland/language"
     ],
 
     // Modules Center
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/window"
     ],
 
     // Modules Right    
     "modules-right": [
-        "custom/updates",
+	// "cpu",
+	// "memory",
         "pulseaudio",
         "bluetooth",
-        "battery", 
         "network",
-        "group/hardware",
-        "custom/cliphist",
-        "idle_inhibitor",
-        "tray",
-        "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
+        // "group/hardware",
+        "battery", 
+        "clock",
+        "custom/exit"
     ]
 }
 

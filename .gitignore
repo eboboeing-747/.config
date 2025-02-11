@@ -10,3 +10,5 @@
 !ghostty/**
 !waybar
 !waybar/**
+!kitty
+!kitty/**
