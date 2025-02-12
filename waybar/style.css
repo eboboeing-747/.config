@@ -1,45 +1,39 @@
 @import "macchiato.css";
 
 * {
-  font-family: "JetBrainsMono Nerd Font Mono", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  color: @blue;
-  padding: 0px;
+    font-family: "JetBrainsMono Nerd Font Mono", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: rgba(192, 202, 245, 1);
 }
 
 window#waybar {
-  background-color: transperent;
-  border-radius: 13px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  padding: 0px;
+    background-color: rgba(26, 27, 38, 0.75);
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(89, 89, 89, 0.67);
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/* modules-left */
+#workspaces:hover {
+    background-color: inherit;
+}
+
+#workspaces button {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 13px;
+}
+
+#workspaces button:hover {
+    background-color: @surface2;
 }
 
 #language {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 4px;
-    margin-right: 4px;
-    border-radius: 13px;
-}
-
-#language:hover {
-    background-color: @surface2;
-}
-
-#custom-exit {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 4px;
-    margin-right: 4px;
-    border-radius: 13px;
-}
-
-#custom-exit:hover {
-    background-color: @surface2;
-}
-
-#clock {
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 2px;
@@ -47,7 +41,51 @@ window#waybar {
     border-radius: 13px;
 }
 
-#clock:hover {
+#language:hover {
+    background-color: @surface2;
+}
+/* end modules-left */
+
+/* moudules-center */
+#window {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 13px;
+}
+
+#window:hover {
+    background-color: @surface2;
+}
+/* end modules-center */
+
+/* modules-right */
+#pulseaudio{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 13px;
+}
+
+#pulseaudio:hover {
+    background-color: @surface2;
+}
+
+#pulseaudio.muted {
+  color: @text;
+}
+
+#network {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 13px;
+}
+
+#network:hover {
     background-color: @surface2;
 }
 
@@ -79,7 +117,7 @@ window#waybar {
   animation-direction: alternate;
 }
 
-#network {
+#clock {
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 2px;
@@ -87,36 +125,25 @@ window#waybar {
     border-radius: 13px;
 }
 
-#network:hover {
+#clock:hover {
     background-color: @surface2;
 }
 
-#pulseaudio{
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+#custom-exit {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
     border-radius: 13px;
 }
 
-#pulseaudio:hover {
+#custom-exit:hover {
     background-color: @surface2;
 }
-
-#pulseaudio.muted {
-  color: @text;
-}
-
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
-}
+/* end moudles-right */
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
+/*button:hover {
   background: inherit;
   box-shadow: inset 0 -3px #ffffff;
 }
@@ -153,12 +180,8 @@ button:hover {
   border-radius: 15px;
 }
 
-.modules-left {
-  padding: 0 20px;
-}
-
 @keyframes blink {
   to {
     color: #000000;
   }
-}
+}*/
