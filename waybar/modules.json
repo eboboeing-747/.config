@@ -164,8 +164,8 @@
         "format-ethernet": "󰌗",
         "format-disconnected": "",
         "tooltip-format": "{ifname} via {gwaddri}",
-        "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}%\nfreq: {frequency}MHz\nup: {bandwidthUpBits} down: {bandwidthDownBits}",
-        "tooltip-format-ethernet": "{ifname}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}%\nfreq: {frequency}MHz\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ifname}\n up: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
         "tooltip-format-disconnected": "no connections",
         "on-click": "kitty nmcli device wifi list"
     },
@@ -210,12 +210,15 @@
 
     // Bluetooth
     "bluetooth": {
-        "format": " {status}",
-        "format-disabled": "",
-        "format-off": "",
+        "format": "󰂲",
+        "format-connected": "",
         "interval": 30,
         "on-click": "blueman-manager",
-        "format-no-controller": ""
+        "tooltip": true,
+        "tooltip-format": "device disabled",
+        "tooltip-format-on": "no connections",
+        "tooltip-format-connected": "{device_alias}",
+        "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}"
     },
 
     // Other

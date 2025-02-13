@@ -1,5 +1,3 @@
-@import "macchiato.css";
-
 * {
     font-family: "JetBrainsMono Nerd Font Mono", Roboto, Helvetica, Arial, sans-serif;
     font-size: 18px;
@@ -12,98 +10,107 @@ window#waybar {
     border-style: solid;
     border-width: 2px;
     border-color: rgba(89, 89, 89, 0.67);
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 0px;
 }
 
 /* modules-left */
-#workspaces:hover {
-    background-color: inherit;
-}
-
 #workspaces button {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 2px;
-    margin-right: 2px;
+    /* top and bottom | left and right */
+    padding: 0px 8px;
+    margin: 1px 0px 1px 2px;
     border-radius: 13px;
 }
 
 #workspaces button:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #language {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #language:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 /* end modules-left */
 
 /* moudules-center */
 #window {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 4px;
-    margin-right: 4px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #window:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 /* end modules-center */
 
 /* modules-right */
-#pulseaudio{
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+#pulseaudio {
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #pulseaudio:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #pulseaudio.muted {
-  color: @text;
+    color: red;
+}
+
+#pulseaudio.muted:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#bluetooth {
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
+    border-radius: 13px;
+}
+
+#bluetooth:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #network {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #network:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #battery {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #battery:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #battery.charging,
 #battery.plugged {
-  color: @sapphire;
+    color: rgba(0, 255, 153, 1);
+}
+
+#battery.charging:hover,
+#battery.plugged:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
@@ -118,27 +125,25 @@ window#waybar {
 }
 
 #clock {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
     border-radius: 13px;
 }
 
 #clock:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #custom-exit {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 4px;
-    margin-right: 4px;
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 0px 1px 2px;
     border-radius: 13px;
 }
 
 #custom-exit:hover {
-    background-color: @surface2;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 /* end moudles-right */
 
