@@ -182,30 +182,20 @@
         // "format-plugged": "{icon}󱐋 {capacity}%",
         "format-alt": "{icon} {time}",
         "format-alt-charging": "{icon}󱐋 {timeTo}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
     },
 
     // Pulseaudio
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", " ", " "]
-        },
-        "on-click": "pavucontrol"
+            "default": ["", "", ""]
+        }
     },
 
     // Bluetooth
@@ -239,5 +229,3 @@
         "on-click-right": "hyprlock"        
     }
 }
-
-
