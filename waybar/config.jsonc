@@ -26,12 +26,14 @@
     // Modules Left
     "modules-left": [
         "hyprland/workspaces",
-	"hyprland/language"
+        "hyprland/language"
     ],
 
     // Modules Center
     "modules-center": [
-        "hyprland/window"
+        // "hyprland/window"
+        // "custom/swaync"
+        "custom/notification"
     ],
 
     // Modules Right    

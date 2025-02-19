@@ -48,6 +48,17 @@ window#waybar {
 #window:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+#custom-notification {
+    /* top and bottom | left and right */
+    padding: 0px 10px;
+    margin: 1px 2px;
+    border-radius: 13px;
+}
+
+#custom-notification:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 /* end modules-center */
 
 /* modules-right */
