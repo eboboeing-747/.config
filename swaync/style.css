@@ -1,0 +1,252 @@
+/* originates from https://github.com/zDyanTB/HyprNova/tree/master/.config/swaync */
+
+* {
+    color: rgba(192, 202, 245, 1);
+
+    all: unset;
+    font-size: 18px;
+    font-family: "JetBrainsMono Nerd Font Mono";
+    transition: 200ms;
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {  
+    background: transparent;
+}
+
+/* big main notification menu */
+.control-center {
+    background-color: rgba(26, 27, 38, 0.75);
+    /*background: alpha(@background, .55);*/
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(51, 204, 255, 0.93);
+    margin: 18px;
+    padding: 12px;
+}
+/* end big main notification menu */
+
+/* when you unwrap notification source section you get a list of these tiles: */
+.control-center .notification-row .notification-background {
+    background-color: rgba(26, 27, 38, 0.75);
+    border-radius: 13px;
+    border-color: rgba(51, 204, 255, 0.93);
+    /* border-color: rgba(0, 255, 153, 1); */
+    border-style: solid;
+    border-width: 2px;
+    margin: 5px 0px;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+    margin: 6px 10px;
+    padding: 4px 2px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * {
+    min-height: 3.4em;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+    border: 2px solid blue;
+    background: alpha(red, .6);
+    color: rgba(192, 202, 245, 1);
+    border-radius: 12px;
+    margin: 6px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+    background: blue;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+    background-color: purple;
+}
+/* end notification source section tile */
+
+
+
+/* do not disturb */
+.widget-dnd {
+    margin: 10px;
+    font-size: 16px;
+    color: rgba(192, 202, 245, 1);
+}
+
+.widget-dnd > switch {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: initial;
+    border-radius: 13px;
+}
+
+.widget-dnd > switch:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.widget-dnd > switch:checked {
+    background: rgba(51, 204, 255, 0.93);
+    color: black;
+}
+
+.widget-dnd > switch:checked:hover {
+    background: rgba(51, 204, 255, 0.5);
+    color: black;
+}
+
+.widget-dnd > switch slider {
+    background: black;
+    margin: 2px;
+    border-radius: 13px;
+}
+/* end do not diturb */
+
+
+
+/* when you unwrap notification source section theres tiles
+ * its the close button on the tile */
+.control-center .notification-row .notification-background .close-button {
+    background: transparent;
+    border-radius: 6px;
+    color: rgba(192, 202, 245, 1);
+    margin: 0px;
+    padding: 4px;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+/* end tile close button */
+
+progressbar,
+progress,
+trough {
+    border-radius: 12px;
+}
+
+progressbar {
+    background-color: rgba(255,255,255,.1);
+}
+
+
+
+.notification-group {
+  margin: 2px 8px 2px 8px;
+}
+
+.notification-group-headers {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: rgba(192, 202, 245, 1);
+    letter-spacing: 2px;
+}
+
+.notification-group-icon {
+    color: rgba(192, 202, 245, 1);
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+    background: transparent;
+    color: rgba(192, 202, 245, 1);
+    margin: 4px; 
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+    background: rgba(0, 0, 0, 0.5);
+}  
+
+
+
+.notification-row {
+    outline: none;
+    margin: 0;
+    padding: 0px;
+}
+
+/* pop-up notification tile */
+.floating-notifications.background .notification-row .notification-background {
+    background-color: rgba(26, 27, 38, 0.75);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(51, 204, 255, 0.93);
+    /* border-color: rgba(0, 255, 153, 1); */
+    border-radius: 13px;
+    margin: 10px;
+    padding: 0;
+    color: rgba(192, 202, 245, 1);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+    margin: 14px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
+    min-height: 3.4em;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
+    border-radius: 8px;
+    background-color: purple;
+    margin: 6px;
+    border: 1px solid transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+    border: 2px solid green; 
+    background-color: black;
+    border: 1px solid green;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+    background-color: blue;
+    color: rgba(192, 202, 245, 1);
+}
+
+.image {
+    margin: 10px 20px 10px 0px;
+}
+
+/* title of the notification tile */
+.summary {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+/* contents of the notification tile */
+.body {
+    font-size: 16px;
+}
+
+/* pop-up notification close button */
+.floating-notifications.background .notification-row .notification-background .close-button {
+  margin: 6px;
+  padding: 2px;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:active {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: rgba(192, 202, 245, 1);
+}
+/* pop-up notification close button */
+
+.notification.critical progress {
+  background-color: blue;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: purple;
+}

@@ -1,0 +1,29 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "positionX": "center",
+    "positionY": "top",
+    "cssPriority": "user",
+
+    "widgets": [
+        "label",
+        "mpris",
+        "dnd",
+        "notifications"
+    ],
+
+    "widget-config": {
+        "label": {
+            "text": " ",
+            "max-lines": 1
+        },
+
+        "mpris": {
+            "image-size": 96,
+            "image-radius": 13
+        },
+
+        "dnd": {
+            "text": "do not disturb"
+        }
+    }
+}
