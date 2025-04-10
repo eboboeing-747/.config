@@ -48,19 +48,18 @@
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
-    border: 2px solid blue;
-    background: alpha(red, .6);
-    color: rgba(192, 202, 245, 1);
+    background-color: rgba(51, 204, 255, 0.40);
     border-radius: 12px;
     margin: 6px;
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-    background: blue;
+    background-color: rgba(51, 204, 255, 0.93);
+    color: black;
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-    background-color: purple;
+    background-color: rgba(51, 204, 255, 0.25);
 }
 /* end notification source section tile */
 
@@ -193,20 +192,17 @@ progressbar {
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
     border-radius: 8px;
-    background-color: purple;
     margin: 6px;
-    border: 1px solid transparent;
+    background-color: rgba(51, 204, 255, 0.40);
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-    border: 2px solid green; 
-    background-color: black;
-    border: 1px solid green;
+    background-color: rgba(51, 204, 255, 0.93);
+    color: black;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-    background-color: blue;
-    color: rgba(192, 202, 245, 1);
+    background-color: rgba(51, 204, 255, 0.25);
 }
 
 .image {
