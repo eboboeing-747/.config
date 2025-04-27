@@ -16,3 +16,5 @@
 !hypr/**
 !swaync
 !swaync/**
+!tmux
+!tmux/tmux.conf
