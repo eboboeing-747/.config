@@ -1,14 +1,11 @@
-# ~/.config/starship.toml
-
-# Inserts a blank line between shell prompts
 add_newline = true
-
-# Select palette
-palette = 'bind-neon'
+palette = 'dark-gradient-blue-purple'
 
 format = """\
-[](fg:dir-bg)\
-[ ](bg:dir-bg fg:dir-fg)\
+[](fg:os-bg)\
+[$os ](bg:os-bg fg:os-fg)\
+[](fg:os-bg bg:dir-bg)\
+[  ](bg:dir-bg fg:dir-fg)\
 $directory\
 [](bg:git-branch-bg fg:dir-bg)\
 $git_branch\
@@ -17,12 +14,39 @@ $git_status\
 [](fg:git-status-bg) \
 """
 
-# Change the default prompt characters
-[character]
-success_symbol = "[󱦰](238)"
-error_symbol = "[󱦰](238)"
+[palettes.gradient-purple]
+os-bg = '#370080'         # 
+os-fg = '#e6e7ed'         # 
+dir-bg = '#5200bf'        # 
+dir-fg = '#e6e7ed'        # 
+git-branch-bg = '#652f8e' # 
+git-branch-fg = '#e6e7ed' # 
+git-status-bg = '#7e58b0' # 
+git-status-fg = '#e6e7ed' # 
 
-[palettes.bind-neon]
+[palettes.gradient-blue-purple]
+os-bg = '#1654a6'         # 
+os-fg = '#e6e7ed'         # 
+dir-bg = '#383a76'        # 
+dir-fg = '#e6e7ed'        # 
+git-branch-bg = '#50286e' # 
+git-branch-fg = '#e6e7ed' # 
+git-status-bg = '#5c137d' # 
+git-status-fg = '#e6e7ed' # 
+
+[palettes.dark-gradient-blue-purple]
+os-bg = '#154789'         # 
+os-fg = '#e6e7ed'         # 
+dir-bg = '#2e2f58'        # 
+dir-fg = '#e6e7ed'        # 
+git-branch-bg = '#3e2352' # 
+git-branch-fg = '#e6e7ed' # 
+git-status-bg = '#4f126c' # 
+git-status-fg = '#e6e7ed' #
+
+[palettes.neon]
+os-bg = '#965027'         # brown - orange
+os-fg = '#ffffff'         # white
 dir-bg = '#1D2B53'        # navy
 dir-fg = '#ffffff'        # white
 git-branch-bg = '#3E065F' # maroon
@@ -30,6 +54,26 @@ git-branch-fg = '#ffffff' # white
 git-status-bg = '#570530' # red
 git-status-fg = '#ffffff' # black
 red = 'F90716'            # red
+
+[palettes.pastel]
+os-bg = '#5a3e8e'         # purple
+os-fg = '#e6e7ed'         # white font
+dir-bg = '#006c86'        # blue
+dir-fg = '#e6e7ed'        # white
+git-branch-bg = '#8f5e15' # orange
+git-branch-fg = '#e6e7ed' # white
+git-status-bg = '#8c4351' # red
+git-status-fg = '#e6e7ed' # black
+
+[palettes.blue]
+os-bg = '#3340ff'         # dark blue
+os-fg = '#e6e7ed'         # white font
+dir-bg = '#525dff'        # blue
+dir-fg = '#e6e7ed'        # white
+git-branch-bg = '#7079ff' # blue
+git-branch-fg = '#e6e7ed' # white
+git-status-bg = '#8f96ff' # light blue
+git-status-fg = '#e6e7ed' # black
 
 [palettes.bind-light]
 dir-bg = '#003161'        # navy
@@ -69,6 +113,18 @@ home_symbol = " ~"
 read_only = " "
 format = "[$path ]($style)[$read_only]($style)"
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"documents" = "󰈙 "
+"Downloads" = " "
+"downloads" = " "
+"Music" = " "
+"music" = " "
+"Pictures" = " "
+"pictures" = " "
+"Images" = " "
+"images" = " "
+
 [git_branch]
 style='bold bg:git-branch-bg fg:git-branch-fg'
 symbol = " "
@@ -91,33 +147,12 @@ staged = '[++\($count\) ](style)'
 renamed = "󰏫 "
 deleted = " "
 
-[terraform]
-format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
-
-[vagrant]
-format = "via [ vagrant $version]($style) "
-
-[docker_context]
-format = "via [ $context](bold blue) "
-
-[helm]
-format = "via [ $version](bold purple) "
-
-[python]
-symbol = " "
-python_binary = "python3"
-
-[nodejs]
-format = "via [ $version](bold green) "
-disabled = true
-
-[ruby]
-format = "via [ $version]($style) "
-
-[kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
+[os]
 disabled = false
+style = "bold bg:os_bg fg:os_fg"
 
-[kubernetes.context_aliases]
-"clcreative-k8s-staging" = "cl-k8s-staging"
-"clcreative-k8s-production" = "cl-k8s-prod"
+[os.symbols]
+Windows=''
+Ubuntu=''
+Arch='󰣇'
+Debian=''
