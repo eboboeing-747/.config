@@ -1,5 +1,5 @@
 add_newline = true
-palette = 'dark-gradient-blue-purple'
+palette = 'gradient-blue-purple'
 
 format = """\
 [](fg:os-bg)\
@@ -31,7 +31,7 @@ dir-bg = '#383a76'        #
 dir-fg = '#e6e7ed'        # 
 git-branch-bg = '#50286e' # 
 git-branch-fg = '#e6e7ed' # 
-git-status-bg = '#5c137d' # 
+git-status-bg = '#652f8e' # 
 git-status-fg = '#e6e7ed' # 
 
 [palettes.dark-gradient-blue-purple]
