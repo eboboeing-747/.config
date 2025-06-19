@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["blink.cmp"] = {
+    loaded = true,
+    path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/blink.cmp",
+    url = "https://github.com/saghen/blink.cmp"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/lualine.nvim",

@@ -1,5 +1,3 @@
-
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -39,5 +37,9 @@ return require('packer').startup(function(use)
         'mason-org/mason.nvim',
         'mason-org/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig'
+    }
+
+    use  {
+        'saghen/blink.cmp'
     }
 end)
