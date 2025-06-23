@@ -1,5 +1,15 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>wv", ":Ex<CR>")
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+
+-- prevents {} motions from opening folds on hover
+vim.keymap.set('n', '{', function()
+  return vim.fn.foldclosed(vim.fn.search('^$', 'Wnb')) == -1 and '{' or '{k'
+end, { expr = true, noremap = true })
+vim.keymap.set('n', '}', function()
+  return vim.fn.foldclosed(vim.fn.search('^$', 'Wn')) == -1 and '}' or '}j'
+end, { expr = true, noremap = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),

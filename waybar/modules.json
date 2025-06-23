@@ -14,38 +14,33 @@
     "hyprland/workspaces" : {
         "on-click": "activate",
         "active-only": false,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-			"active": ""
-        },
-        "persistent-workspaces": {
-            // START WORKSPACES
-    "*": 5
-            // END WORKSPACES
-        }       
+            "active": ""
+        }
     },
 
     // Notification deamon
     "custom/notification": {
-    "tooltip": false,
-    "format": "{icon} ({0})", // 1 stands for icon and 0 for notifications amount
-    "format-icons": {
-        "notification": "",
-        "none": "",
-        "dnd-notification": "",
-        "dnd-none": "",
-        "inhibited-notification": "",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "",
-        "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
+        "tooltip": false,
+        "format": "{icon} ({0})", // 1 stands for icon and 0 for notifications amount
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 
     // Language
@@ -61,7 +56,7 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "Alacritty"
+            "Alacritty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -124,71 +119,71 @@
 
     // System
     // "custom/system": {
-    //     "format": "",
-    //     "tooltip": false
-    // },
+        //     "format": "",
+        //     "tooltip": false
+        // },
 
-    // CPU
-    "cpu": {
-        "format": " {usage}%"
-    },
-
-    // Memory
-    "memory": {
-        "format": " {used:0.1f}G"
-    },
-
-    // Network
-    "network": {
-        "format": "{ifname}",
-        "format-wifi": "",
-        "format-ethernet": "󰌗",
-        "format-disconnected": "",
-        "tooltip-format": "{ifname} via {gwaddri}",
-        "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}%\nfreq: {frequency}MHz\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
-        "tooltip-format-ethernet": "{ifname}\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
-        "tooltip-format-disconnected": "no connections",
-        "on-click": "kitty nmcli device wifi list"
-    },
-
-    // Battery
-    "battery": {
-        "states": {
-            // "good": 100,
-            "warning": 30,
-            "critical": 15
+        // CPU
+        "cpu": {
+            "format": " {usage}%"
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "{icon}󱐋 {capacity}%",
-        // "format-plugged": "{icon}󱐋 {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-alt-charging": "{icon}󱐋 {timeTo}",
-        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
-    },
 
-    // Pulseaudio
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "default": ["", "", ""]
+        // Memory
+        "memory": {
+            "format": " {used:0.1f}G"
+        },
+
+        // Network
+        "network": {
+            "format": "{ifname}",
+            "format-wifi": "",
+            "format-ethernet": "󰌗",
+            "format-disconnected": "",
+            "tooltip-format": "{ifname} via {gwaddri}",
+            "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}%\nfreq: {frequency}MHz\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
+            "tooltip-format-ethernet": "{ifname}\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",
+            "tooltip-format-disconnected": "no connections",
+            "on-click": "kitty nmcli device wifi list"
+        },
+
+        // Battery
+        "battery": {
+            "states": {
+                // "good": 100,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": "{icon}󱐋 {capacity}%",
+            // "format-plugged": "{icon}󱐋 {capacity}%",
+            "format-alt": "{icon} {time}",
+            "format-alt-charging": "{icon}󱐋 {timeTo}",
+            "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
+        },
+
+        // Pulseaudio
+        "pulseaudio": {
+            "format": "{icon} {volume}%",
+            "format-bluetooth": "{icon} {volume}% {format_source}",
+            "format-bluetooth-muted": " {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": " {volume}%",
+            "format-source-muted": "",
+            "format-icons": {
+                "default": ["", "", ""]
+            }
+        },
+
+        // Bluetooth
+        "bluetooth": {
+            "format": "󰂲",
+            "format-connected": "",
+            "interval": 30,
+            "on-click": "blueman-manager",
+            "tooltip": true,
+            "tooltip-format": "device disabled",
+            "tooltip-format-on": "no connections",
+            "tooltip-format-connected": "{device_alias}",
+            "tooltip-format-connected-battery": "{device_alias} 󰁹{device_battery_percentage}%"
         }
-    },
-
-    // Bluetooth
-    "bluetooth": {
-        "format": "󰂲",
-        "format-connected": "",
-        "interval": 30,
-        "on-click": "blueman-manager",
-        "tooltip": true,
-        "tooltip-format": "device disabled",
-        "tooltip-format-on": "no connections",
-        "tooltip-format-connected": "{device_alias}",
-        "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}"
-    },
 }
