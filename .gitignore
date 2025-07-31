@@ -20,3 +20,5 @@
 !tmux/tmux.conf
 !powershell
 !powershell/**
+!wofi
+!wofi/**
