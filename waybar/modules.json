@@ -137,7 +137,7 @@
         "network": {
             "format": "{ifname}",
             "format-wifi": "",
-            "format-ethernet": "󰌗",
+            "format-ethernet": "󰈀",
             "format-disconnected": "",
             "tooltip-format": "{ifname} via {gwaddri}",
             "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}%\nfreq: {frequency}MHz\nup: {bandwidthUpBits}\ndown: {bandwidthDownBits}",

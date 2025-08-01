@@ -29,9 +29,11 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    --[[
     use {
         'xiyaowong/transparent.nvim'
     }
+    ]]
 
     use {
         'mason-org/mason.nvim',
@@ -39,7 +41,7 @@ return require('packer').startup(function(use)
         'neovim/nvim-lspconfig'
     }
 
-    use  {
+    use {
         'saghen/blink.cmp'
     }
 end)
