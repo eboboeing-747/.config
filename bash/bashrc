@@ -1,0 +1,15 @@
+# add next line to ~/.bashrc
+# source <path/to/this/file>
+
+alias pbcopy='xclip -selection clipboard' # copy to clipboard
+alias pbpaste='xclip -selection clipboard -o' # paste from clipboard
+
+alias ls='lsd'
+alias tree='lsd --tree'
+alias grep='grep --color=auto'
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
+
+export FZF_DEFAULT_OPTS='--tmux 80%'
+eval "$(fzf --bash --tmux 80%)"
