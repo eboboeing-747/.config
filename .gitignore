@@ -22,3 +22,5 @@
 !powershell/**
 !wofi
 !wofi/**
+!bash
+!bash/**
