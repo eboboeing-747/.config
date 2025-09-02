@@ -24,3 +24,5 @@
 !wofi/**
 !bash
 !bash/**
+!fastfetch
+!fastfetch/**

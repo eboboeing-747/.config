@@ -1,6 +1,7 @@
 local horizon_transparent = require('lualine.themes.horizon')
 
 horizon_transparent.normal.c.bg = 'default'
+horizon_transparent.visual.c.bg = 'default'
 horizon_transparent.replace.c.bg = 'default'
 horizon_transparent.insert.c.bg = 'default'
 horizon_transparent.inactive.c.bg = 'default'
