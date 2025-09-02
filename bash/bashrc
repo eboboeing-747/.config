@@ -8,6 +8,9 @@ alias ls='lsd'
 alias tree='lsd --tree'
 alias grep='grep --color=auto'
 
+export dev=/mnt/shared/dev/
+export SUDO_EDITOR=/usr/bin/nvim
+
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
