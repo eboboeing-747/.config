@@ -97,7 +97,8 @@
         {
             "type": "disk",
             "key": "├- drive      ",
-            "keyColor": "cyan"
+            "keyColor": "cyan",
+            "format": "[{size-used} / {size-total}]\t({size-percentage}, {size-available} available)\t{mountpoint} - {filesystem}"
         },
         {
             "type": "swap",
