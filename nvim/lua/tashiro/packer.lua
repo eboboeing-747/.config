@@ -29,12 +29,6 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    --[[
-    use {
-        'xiyaowong/transparent.nvim'
-    }
-    ]]
-
     use {
         'mason-org/mason.nvim',
         'mason-org/mason-lspconfig.nvim',
@@ -43,5 +37,13 @@ return require('packer').startup(function(use)
 
     use {
         'saghen/blink.cmp'
+    }
+
+    use {
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
     }
 end)

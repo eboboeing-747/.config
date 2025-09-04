@@ -14,6 +14,12 @@ end, { expr = true, noremap = true })
 
 vim.keymap.set("n", "<space>t", ":Fterm<CR>")
 
+-- Alt + vim mitions to navigate between panes
+vim.keymap.set('n', '<M-h>', "<C-w>h")
+vim.keymap.set('n', '<M-j>', "<C-w>j")
+vim.keymap.set('n', '<M-k>', "<C-w>k")
+vim.keymap.set('n', '<M-l>', "<C-w>l")
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)

@@ -1,3 +1,11 @@
+require("telescope").setup({
+    pickers = {
+        find_files = {
+            push_tagstack_on_edit = true,
+        },
+    },
+})
+
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>wf', builtin.find_files, { desc = 'Telescope find files' })
