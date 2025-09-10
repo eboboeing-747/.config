@@ -14,6 +14,13 @@ horizon_transparent.insert.b.fg = '#c0caf5'
 horizon_transparent.inactive.b.fg = '#c0caf5'
 horizon_transparent.command.b.fg = '#c0caf5'
 
+horizon_transparent.normal.c.fg = '#c0caf5'
+horizon_transparent.visual.c.fg = '#c0caf5'
+horizon_transparent.replace.c.fg = '#c0caf5'
+horizon_transparent.insert.c.fg = '#c0caf5'
+horizon_transparent.inactive.c.fg = '#c0caf5'
+horizon_transparent.command.c.fg = '#c0caf5'
+
 require('lualine').setup({
     options = {
         theme = horizon_transparent,
