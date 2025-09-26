@@ -1,3 +1,6 @@
+// to get format info:
+// fastfetch -h <module-name>-format
+
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
@@ -85,13 +88,13 @@
             "keyColor": "cyan"
         },
         {
-            "type": "gpu",
-            "key": "├-󰢮 gpu        ",
+            "type": "memory",
+            "key": "├- memory     ",
             "keyColor": "cyan"
         },
         {
-            "type": "memory     ",
-            "key": "├- memory",
+            "type": "gpu",
+            "key": "├-󰢮 gpu        ",
             "keyColor": "cyan"
         },
         {

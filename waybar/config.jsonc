@@ -20,27 +20,18 @@
     "name": "hyprland-default-laptop",
     "reload_style_on_change": true,
 
-    // Load Modules
     "include": ["~/.config/waybar/modules.json"],
 
-    // Modules Left
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/language"
     ],
 
-    // Modules Center
     "modules-center": [
-        // "hyprland/window",
-        // "custom/swaync"
         "custom/notification"
     ],
 
-    // Modules Right    
     "modules-right": [
-	// "cpu",
-	// "memory",
-        // "group/hardware",
         "pulseaudio",
         "bluetooth",
         "network",
