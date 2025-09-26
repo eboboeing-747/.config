@@ -46,4 +46,21 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
+
+    use {
+        "seblyng/roslyn.nvim",
+        ---@module 'roslyn.config'
+        ---@type RoslynNvimConfig
+        opts = {
+            -- your configuration comes here; leave empty for default settings
+        },
+    }
+
+    use {
+        'nvim-flutter/flutter-tools.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+    }
 end)

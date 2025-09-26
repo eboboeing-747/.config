@@ -79,6 +79,16 @@ _G.packer_plugins = {
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/blink.cmp",
     url = "https://github.com/saghen/blink.cmp"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["flutter-tools.nvim"] = {
+    loaded = true,
+    path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    url = "https://github.com/nvim-flutter/flutter-tools.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -95,6 +105,7 @@ _G.packer_plugins = {
     url = "https://github.com/mason-org/mason.nvim"
   },
   ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -132,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["roslyn.nvim"] = {
+    loaded = true,
+    path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/roslyn.nvim",
+    url = "https://github.com/seblyng/roslyn.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
