@@ -30,6 +30,13 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'VonHeikemen/fine-cmdline.nvim',
+        requires = {
+            {'MunifTanjim/nui.nvim'}
+        }
+    }
+
+    use {
         'mason-org/mason.nvim',
         'mason-org/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig'
