@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
     url = "https://github.com/nvim-flutter/flutter-tools.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/tashiro/.local/share/nvim/site/pack/packer/start/lualine.nvim",

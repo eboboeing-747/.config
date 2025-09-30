@@ -1,46 +1,63 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd("colorscheme " .. color)
+-- :hi to view all 
+
+require('kanagawa').setup({
+    compile = false,             -- enable compiling the colorscheme
+    undercurl = true,            -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true},
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = true,         -- do not set background color
+    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+    colors = {                   -- add/modify theme and palette colors
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    },
+    overrides = function(colors) -- add/modify highlights
+        return {}
+    end,
+    theme = 'wave',              -- Load 'wave' theme
+    background = {               -- map the value of 'background' option to a theme
+        dark = 'wave',           -- try 'dragon' !
+        light = 'lotus'
+    },
+})
+
+vim.cmd('colorscheme kanagawa')
+
+function ApplyColorSceme(scheme)
+	scheme = scheme or 'rose-pine'
+	vim.cmd('colorscheme ' .. scheme)
 
     local groups = {
-        'Normal',
         'NormalFloat',
-        'NormalNC',
-        --[[
-        'Comment',
-        'Constant',
-        'Special',
-        'Identifier',
-        'Statement',
-        'PreProc',
-        'Type',
-        'Underlined',
-        'Todo',
-        'String',
-        'Function',
-        'Conditional',
-        'Repeat',
-        'Operator',
-        'Structure',
+        'Float',
         'LineNr',
         'NonText',
         'SignColumn',
-        ]]
-        'CursorLine',
-        'CursorLineNr',
         'StatusLine',
         'StatusLineNC',
         'EndOfBuffer',
         'FloatBorder',
-        'TelescopeNormal',
+        'FloatTitle',
         'TelescopePreviewBorder',
         'TelescopeResultsBorder',
-        'TelescopePromptBorder'
+        'TelescopePromptBorder',
+        'DiagnosticSignError',
+        'DiagnosticSignWarn',
+        'DiagnosticSignInfo',
+        'DiagnosticSignHint',
+        'PMenu', -- code complition window
+        'BlinkCmpMenuBorder', -- code complition window border
     }
 
-    for _,group in pairs(groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
+    for _,groupName in pairs(groups) do
+        local group = vim.api.nvim_get_hl(0, { name = groupName })
+        local new_group = vim.tbl_extend('force', group, { bg = 'none' })
+        vim.api.nvim_set_hl(0, groupName, new_group)
     end
 end
 
-ColorMyPencils()
+ApplyColorSceme('kanagawa-wave')
