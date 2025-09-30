@@ -1,16 +1,10 @@
-vim.lsp.config("roslyn", {
-    on_attach = function()
-        print("This will run when the server attaches!")
-    end,
+vim.lsp.enable({"lua_ls"})
+vim.lsp.config("lua_ls", {
     settings = {
-        ["csharp|inlay_hints"] = {
-            csharp_enable_inlay_hints_for_implicit_object_creation = true,
-            csharp_enable_inlay_hints_for_implicit_variable_types = true,
-        },
-        ["csharp|code_lens"] = {
-            dotnet_enable_references_code_lens = true,
-        },
-    },
+        Lua = {
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            }
+        }
+    }
 })
-
-print('sourced')

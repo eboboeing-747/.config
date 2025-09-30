@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "seblyng/roslyn.nvim",
+        'seblyng/roslyn.nvim',
         ---@module 'roslyn.config'
         ---@type RoslynNvimConfig
         opts = {
