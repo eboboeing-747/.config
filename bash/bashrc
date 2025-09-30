@@ -8,6 +8,8 @@ alias ls='lsd'
 alias tree='lsd --tree'
 alias grep='grep --color=auto'
 
+alias pgctl='pg_ctl'
+
 export dev=/mnt/shared/dev/
 export SUDO_EDITOR=/usr/bin/nvim
 
