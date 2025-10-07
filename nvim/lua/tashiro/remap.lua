@@ -1,15 +1,15 @@
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>wv", ":Ex<CR>")
+vim.keymap.set("n", "<leader>e", ":Ex<CR>")
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 -- prevents {} motions from opening folds on hover
 vim.keymap.set('n', '{', function()
-  return vim.fn.foldclosed(vim.fn.search('^$', 'Wnb')) == -1 and '{' or '{k'
+    return vim.fn.foldclosed(vim.fn.search('^$', 'Wnb')) == -1 and '{' or '{k'
 end, { expr = true, noremap = true })
 vim.keymap.set('n', '}', function()
-  return vim.fn.foldclosed(vim.fn.search('^$', 'Wn')) == -1 and '}' or '}j'
+    return vim.fn.foldclosed(vim.fn.search('^$', 'Wn')) == -1 and '}' or '}j'
 end, { expr = true, noremap = true })
 
 vim.keymap.set("n", "<space>t", ":Fterm<CR>")
@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
         if client:supports_method('textDocument/completion') then

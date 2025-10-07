@@ -42,15 +42,14 @@ function ApplyColorSceme(scheme)
         'EndOfBuffer',
         'FloatBorder',
         'FloatTitle',
-        'TelescopePreviewBorder',
-        'TelescopeResultsBorder',
-        'TelescopePromptBorder',
+        'TelescopeBorder',
         'DiagnosticSignError',
         'DiagnosticSignWarn',
         'DiagnosticSignInfo',
         'DiagnosticSignHint',
         'PMenu', -- code complition window
         'BlinkCmpMenuBorder', -- code complition window border
+        'PMenuExtra' -- code complition window references etc
     }
 
     for _,groupName in pairs(groups) do
