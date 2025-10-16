@@ -53,10 +53,16 @@ function ApplyColorSceme(scheme)
     }
 
     for _,groupName in pairs(groups) do
-        local group = vim.api.nvim_get_hl(0, { name = groupName })
+        local group = vim.api.nvim_get_hl(0, { name = groupName, link = false, create = false })
         local new_group = vim.tbl_extend('force', group, { bg = 'none' })
         vim.api.nvim_set_hl(0, groupName, new_group)
     end
+
+    local TcSelection = vim.api.nvim_get_hl(
+        0,
+        { name = 'TelescopeSelection', link = false, create = false }
+    )
+    vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', TcSelection)
 end
 
 ApplyColorSceme('kanagawa-wave')
