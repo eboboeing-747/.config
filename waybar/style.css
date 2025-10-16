@@ -55,6 +55,7 @@ window#waybar>box {
     background-color: @border-inactive;
     color: @font;
     padding: 0px 16px;
+    text-shadow: 1px 1px 0px black;
 
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
