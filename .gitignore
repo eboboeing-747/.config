@@ -17,7 +17,7 @@
 !swaync
 !swaync/**
 !tmux
-!tmux/tmux.conf
+!tmux/**
 !powershell
 !powershell/**
 !wofi
