@@ -82,4 +82,8 @@ return require('packer').startup(function(use)
             'stevearc/dressing.nvim', -- optional for vim.ui.select
         },
     }
+
+    use {
+        'alexghergh/nvim-tmux-navigation'
+    }
 end)
