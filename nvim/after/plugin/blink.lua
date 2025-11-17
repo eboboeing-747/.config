@@ -3,7 +3,7 @@ require("blink.cmp").setup({
     dependencies = { 'rafamadriz/friendly-snippets' },
 
     -- use a release tag to download pre-built binaries
-    version = '1.*',
+    version = '1.8.0',
 
     opts = {
         -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
@@ -34,7 +34,7 @@ require("blink.cmp").setup({
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
-        fuzzy = { implementation = "lua" } --prefer_rust_with_warning
+        fuzzy = { implementation = 'prefer_rust_with_warning' }
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { 'sources.default' }
 })
