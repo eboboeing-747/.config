@@ -1,6 +1,6 @@
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>e", ":Ex<CR>")
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 

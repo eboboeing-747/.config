@@ -11,14 +11,6 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use ({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
-
     use {
         'rebelot/kanagawa.nvim'
     }
@@ -55,6 +47,7 @@ return require('packer').startup(function(use)
     }
 
     use {
+        ---@module 'blink.cmp'
         'saghen/blink.cmp'
     }
 
@@ -85,5 +78,9 @@ return require('packer').startup(function(use)
 
     use {
         'alexghergh/nvim-tmux-navigation'
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua'
     }
 end)
