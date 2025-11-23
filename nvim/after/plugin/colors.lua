@@ -63,6 +63,9 @@ function ApplyColorSceme(scheme)
         { name = 'TelescopeSelection', link = false, create = false }
     )
     vim.api.nvim_set_hl(0, 'TelescopeSelectionCaret', TcSelection)
+
+    -- add infill to inactive status line
+    vim.opt.fillchars = { stlnc = '⠂' }
 end
 
 ApplyColorSceme('kanagawa-wave')
