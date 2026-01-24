@@ -26,3 +26,5 @@
 !bash/**
 !fastfetch
 !fastfetch/**
+!wlogout
+!wlogout/**

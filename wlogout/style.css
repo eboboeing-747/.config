@@ -1,0 +1,68 @@
+* {
+    background-image: none;
+}
+
+@define-color background rgba(26, 27, 38, 0.75);
+@define-color border-inactive rgba(89, 89, 89, 0.67);
+@define-color font rgba(192, 202, 245, 1);
+@define-color red rgba(233, 86, 120, 1);
+@define-color green rgba(0, 255, 153, 1);
+@define-color hover rgba(0, 0, 0, 0.75);
+
+window {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#lock {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
+
+#logout {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
+
+#suspend {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
+
+#shutdown {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
+
+#hibernate {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
+
+#reboot {
+    background-color: @background;
+    border-radius: 13px;
+    border-color: @green;
+    border-width: 2px;
+    margin: 50px;
+    color: @font;
+}
