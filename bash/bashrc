@@ -5,10 +5,12 @@ alias pbcopy='xclip -selection clipboard' # copy to clipboard
 alias pbpaste='xclip -selection clipboard -o' # paste from clipboard
 
 alias ls='lsd'
-alias tree='lsd --tree'
+alias tree='lsd --tree -I node_modules -I bin -I obj'
 alias grep='grep --color=auto'
 
 alias pgctl='pg_ctl'
+
+alias tnew='tmux new -s $(basename $(pwd))'
 
 export dev=/mnt/shared/dev/
 export SUDO_EDITOR=/usr/bin/nvim
@@ -18,3 +20,5 @@ eval "$(starship init bash)"
 
 export FZF_DEFAULT_OPTS='--tmux 80%'
 eval "$(fzf --bash --tmux 80%)"
+
+bind 'set completion-ignore-case on'
