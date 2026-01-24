@@ -109,13 +109,13 @@
             "keyColor": "cyan"
         },
         {
-            "type": "uptime",
-            "key": "├-󰅐 uptime     ",
+            "type": "display",
+            "key": "├-󰍹 monitor    ",
             "keyColor": "cyan"
         },
         {
-            "type": "display",
-            "key": "╰-󰍹 monitor    ",
+            "type": "uptime",
+            "key": "╰-󰅐 uptime     ",
             "keyColor": "cyan"
         },
         "break",
