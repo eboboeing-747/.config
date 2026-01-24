@@ -28,3 +28,5 @@
 !fastfetch/**
 !wlogout
 !wlogout/**
+!git
+!git/**
