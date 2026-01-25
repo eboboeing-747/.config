@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter').setup {
     ensure_installed = { "c", "lua", "vim", "vue", "html", "css", "typescript" },
     auto_install = false,
     sync_install = false,
