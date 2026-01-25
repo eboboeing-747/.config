@@ -32,7 +32,7 @@
     ],
 
     "modules-right": [
-        "pulseaudio",
+        "wireplumber",
         "bluetooth",
         "network",
         "battery", 

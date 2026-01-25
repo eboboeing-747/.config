@@ -65,6 +65,7 @@ window#waybar>box {
 #window,
 #custom-notification,
 #pulseaudio,
+#wireplumber,
 #bluetooth,
 #network,
 #battery,
@@ -80,6 +81,8 @@ window#waybar>box {
 #custom-notification:hover,
 #pulseaudio:hover,
 #pulseaudio.muted:hover,
+#wireplumber:hover,
+#wireplumber.muted:hover,
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
@@ -90,6 +93,9 @@ window#waybar>box {
     background-color: @hover;
 }
 
+#wireplumber.muted,
+#wireplumber-sink.muted,
+#wireplumber-source.muted,
 #pulseaudio.muted {
     color: @red;
 }
