@@ -12,7 +12,7 @@
 [delta]
     navigate = true
 [init]
-	dafaultBranch = main
+	defaultBranch = main
 [merge]
     conflictstyle = zdiff3
 [alias]
