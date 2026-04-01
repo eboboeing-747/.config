@@ -1,5 +1,5 @@
 add_newline = true
-palette = 'gradient-blue-purple'
+palette = 'gradient-orange'
 
 format = """\
 [](fg:os-bg)\
@@ -13,6 +13,16 @@ $git_branch\
 $git_status\
 [](fg:git-status-bg) \
 """
+
+[palettes.gradient-orange]
+os-bg = '#D7592B'
+os-fg = '#e6e7ed'
+dir-bg = '#f27844'
+dir-fg = '#e6e7ed'
+git-branch-bg = '#f38b57'
+git-branch-fg = '#e6e7ed'
+git-status-bg = '#f39f6b'
+git-status-fg = '#e6e7ed'
 
 [palettes.gradient-purple]
 os-bg = '#370080'         # 
