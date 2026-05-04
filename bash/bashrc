@@ -22,3 +22,16 @@ export FZF_DEFAULT_OPTS='--tmux 80%'
 eval "$(fzf --bash --tmux 80%)"
 
 bind 'set completion-ignore-case on'
+
+buds() {
+    if [ "$1" = "con" ]; then
+        bluetoothctl devices Paired | awk '/Buds/{print $2}' | xargs -I{} bluetoothctl connect {}
+        return 0
+    elif [ "$1" = "dis" ]; then
+        bluetoothctl devices Connected | awk '/Buds/{print $2}' | xargs -I{} bluetoothctl disconnect {}
+        return 0
+    fi
+
+    echo -e "arguments not understood;\nusage: buds (con|dis)"
+    return 1;
+}
