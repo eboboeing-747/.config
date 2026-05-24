@@ -35,3 +35,16 @@ buds() {
     echo -e "arguments not understood;\nusage: buds (con|dis)"
     return 1;
 }
+
+mon() {
+    if [ "$1" = "on" ]; then
+        hyprctl 'dispatch dpms on eDP-1'
+        return 0
+    elif [ "$1" = "off" ]; then
+        hyprctl 'dispatch dpms off eDP-1'
+        return 0
+    fi
+
+    echo -e "arguments not understood;\nusage: mon (on|off)"
+    return 1;
+}
