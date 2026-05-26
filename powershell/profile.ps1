@@ -11,4 +11,9 @@ New-Alias -Name pgctl -Value pg_ctl
 
 function tree { lsd --tree @args }
 
+function explres {
+    taskkill /f /im explorer.exe 
+    explorer.exe
+}
+
 clear
