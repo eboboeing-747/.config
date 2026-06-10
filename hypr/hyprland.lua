@@ -1,5 +1,3 @@
-hl.on("hyprland.start", function ()
-end)
-
+require('autostart')
 require('binds')
 require('monitors')
