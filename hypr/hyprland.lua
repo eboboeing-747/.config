@@ -1,3 +1,5 @@
 require('autostart')
+require('input')
+require('appearance')
 require('binds')
 require('monitors')
