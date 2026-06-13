@@ -112,3 +112,35 @@ hl.animation({
     bezier = "smoothIn",
     style = "slidevert"
 })
+
+hl.layer_rule({
+    name = "statusbar",
+    match = { initial_class = "waybar" },
+    blur = true,
+    ignore_alpha = 0
+})
+
+hl.layer_rule({
+    name = "notification-center",
+    match = { namespace = "swaync-control-center" },
+    blur = true,
+    ignore_alpha = 0
+})
+
+hl.layer_rule({
+    name = "notification-window",
+    match = { namespace = "swaync-notification-window" },
+    blur = true,
+    ignore_alpha = 0
+})
+
+hl.window_rule({
+    name = "pip",
+    match = {
+        initial_title = "^(Picture-in-Picture)$"
+    },
+    float = true,
+    pin = true,
+    move = { "monitor_w * 0.65", "monitor_h * 0.65" },
+    size = { "monitor_w * 0.3", "monitor_h * 0.3" }
+})

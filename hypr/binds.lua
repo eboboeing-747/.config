@@ -23,7 +23,7 @@ hl.bind("SUPER + DOWN", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5
 -- TODO: -- bindl = , switch:on:Lid Switch, exec, hyprlock
 
 -- spawn new | kill
-hl.bind("SUPER + C", hl.dsp.window.kill("activewindow"))
+hl.bind("SUPER + C", hl.dsp.window.close("activewindow"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + I", hl.dsp.exec_cmd(terminal, {
     float = true,
