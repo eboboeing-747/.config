@@ -23,7 +23,7 @@ hl.bind("SUPER + C", hl.dsp.window.close("activewindow"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(decl.terminal))
 hl.bind("SUPER + I", hl.dsp.exec_cmd(decl.terminal, {
     float = true,
-    size = { "window_w * " .. float_factor, "window_l * " .. float_factor },
+    size = { "monitor_w * " .. float_factor, "monitor_h * " .. float_factor },
     center = true
 }))
 hl.bind("SUPER + R", hl.dsp.exec_cmd(decl.launcher))
