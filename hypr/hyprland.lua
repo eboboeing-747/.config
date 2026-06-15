@@ -1,3 +1,4 @@
+require('env')
 require('autostart')
 require('input')
 require('appearance')

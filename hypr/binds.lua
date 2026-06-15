@@ -1,15 +1,11 @@
-local terminal = "kitty"
-local browser = "firefox-developer-edition"
-local launcher = "wofi"
-local lockscreen = "hyprlock"
+local decl = require("decl")
 local float_factor = 0.6
 
-
-
 -- miscellaneous
-hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd(lockscreen))
+hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd(decl.lockscreen))
 hl.bind("SUPER + SHIFT + CTRL + M", function()
-    hl.timer(function()
+    hl.timer(
+        function()
             hl.dispatch(hl.dsp.dpms({ action = "toggle" }))
         end,
         { timeout = 500, type = "oneshot" }
@@ -24,14 +20,14 @@ hl.bind("SUPER + DOWN", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5
 
 -- spawn new | kill
 hl.bind("SUPER + C", hl.dsp.window.close("activewindow"))
-hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
-hl.bind("SUPER + I", hl.dsp.exec_cmd(terminal, {
+hl.bind("SUPER + T", hl.dsp.exec_cmd(decl.terminal))
+hl.bind("SUPER + I", hl.dsp.exec_cmd(decl.terminal, {
     float = true,
     size = { "window_w * " .. float_factor, "window_l * " .. float_factor },
     center = true
 }))
-hl.bind("SUPER + R", hl.dsp.exec_cmd(launcher))
-hl.bind("SUPER + B", hl.dsp.exec_cmd(browser))
+hl.bind("SUPER + R", hl.dsp.exec_cmd(decl.launcher))
+hl.bind("SUPER + B", hl.dsp.exec_cmd(decl.browser))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 -- manipulate window props
@@ -108,5 +104,3 @@ hl.bind("SUPER + ALT + L", hl.dsp.focus({ workspace = "m+1", on_current_monitor 
 hl.bind("SUPER + ALT + H", hl.dsp.focus({ workspace = "m-1", on_current_monitor = true }))
 
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
-
-
