@@ -1,91 +1,4 @@
-TokenType = {
-    DOLLAR = {},
-    IDENTIFIER = {},
-    EQUAL = {},
-    VALUE = {},
-    NEWLINE = {},
-    EOF = {},
-    ERROR = {},
-}
-
-local scanner = {
-    start = 1,
-    current = 1,
-    line = 0,
-    file = nil,
-}
-
-local function init_scanner(file)
-    scanner.file = file
-end
-
-local Token = {}
-
-function Token:new(type)
-    local public = {}
-        public.type = type
-        public.start = scanner.start
-        public.length = scanner.current - scanner.start
-        public.line = scanner.line
-
-    setmetatable(public, self)
-    Token.__index = self
-    return public
-end
-
-function Token:__tostring()
-    if self.type == TokenType.DOLLAR then
-        return "DOLLAR"
-    elseif self.type == TokenType.IDENTIFIER then
-        return "IDENTIFIER"
-    elseif self.type == TokenType.EQUAL then
-        return "EQUAL"
-    elseif self.type == TokenType.VALUE then
-        return "VALUE"
-    elseif self.type == TokenType.NEWLINE then
-        return "NEWLINE"
-    elseif self.type == TokenType.EOF then
-        return "EOF"
-    elseif self.type == TokenType.ERROR then
-        return "ERROR"
-    else
-        return "UNKNOWN_TOKEN"
-    end
-end
-
-function Token:lexeme()
-    return "'" .. scanner.file:sub(self.start, self.start + self.length - 1) .. "'"
-end
-
-local function is_at_end()
-    return scanner.current == scanner.file:len();
-end
-
-local function at(i)
-    return scanner.file:sub(i, i)
-end
-
-local function advance()
-    scanner.current = scanner.current + 1
-    return at(scanner.current - 1)
-end
-
-local function peek()
-    return at(scanner.current)
-end
-
-local function skip_whitespace()
-    while true do
-        local c = peek()
-
-        if c == " " or c == "\t" or c == "\r" then
-            advance()
-            break
-        else
-            return
-        end
-    end
-end
+require("token")
 
 local function is_aplha(c)
     return not not c:match("^[%a_]$")
@@ -99,45 +12,88 @@ local function is_special(c)
     return not not c:match("^[#~,/%(%)%.%-]")
 end
 
-local function identifier_or_value(type)
+Scanner = {}
+
+function Scanner:new(file)
+    local public = {}
+        public.start = 1
+        public.current = 1
+        public.line = 1
+        public.file = file
+
+    setmetatable(public, self)
+    Scanner.__index = self
+    return public
+end
+
+function Scanner:lexeme()
+    return self.file:sub(self.start, self.current - 1)
+end
+
+function Scanner:is_at_end()
+    return self.current == self.file:len();
+end
+
+function Scanner:at(i)
+    return self.file:sub(i, i)
+end
+
+function Scanner:advance()
+    self.current = self.current + 1
+    return self:at(self.current - 1)
+end
+
+function Scanner:peek()
+    return self:at(self.current)
+end
+
+function Scanner:skip_whitespace()
+    while true do
+        local c = self:peek()
+
+        if c == " " or c == "\t" or c == "\r" then
+            self:advance()
+            break
+        else
+            return
+        end
+    end
+end
+
+function Scanner:identifier_or_value(type)
     local type = type or TokenType.IDENTIFIER
 
-    while is_aplha(peek()) or is_digit(peek()) or is_special(peek()) do
-        local c = advance()
+    while is_aplha(self:peek()) or is_digit(self:peek()) or is_special(self:peek()) do
+        local c = self:advance()
 
         if is_special(c) then
             type = TokenType.VALUE
         end
     end
 
-    return Token:new(type)
+    return Token:new(type, self:lexeme(), self.line)
 end
 
-local function scan_token()
-    skip_whitespace()
-    scanner.start = scanner.current
+function Scanner:scan_token()
+    self:skip_whitespace()
+    self.start = self.current
 
-    if is_at_end() then return Token:new(TokenType.EOF) end
+    if self:is_at_end() then return Token:new(TokenType.EOF) end
 
-    local c = advance()
+    local c = self:advance()
 
     if c == "$" then
-        return Token:new(TokenType.DOLLAR)
+        return Token:new(TokenType.DOLLAR, self:lexeme(), self.line)
     elseif c == "=" then
-        return Token:new(TokenType.EQUAL)
+        return Token:new(TokenType.EQUAL, self:lexeme(), self.line)
     elseif c == '\n' then
-        scanner.line = scanner.line + 1
-        return Token:new(TokenType.NEWLINE)
+        self.line = self.line + 1
+        return Token:new(TokenType.NEWLINE, self:lexeme(), self.line)
     elseif is_aplha(c) then
-        return identifier_or_value()
+        return self:identifier_or_value()
     elseif is_digit(c) or is_special(c) then
-        return identifier_or_value(TokenType.VALUE)
+        return self:identifier_or_value(TokenType.VALUE)
     end
 
-    return Token:new(Token.ERROR)
+    return Token:new(TokenType.ERROR, self:lexeme(), self.line)
 end
-
-return {
-    init_scanner = init_scanner,
-    scan_token = scan_token,
-}
