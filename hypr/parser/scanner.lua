@@ -27,11 +27,15 @@ function Scanner:new(file)
 end
 
 function Scanner:lexeme()
+    if self.start > self.file:len() then
+        return "\0"
+    end
+
     return self.file:sub(self.start, self.current - 1)
 end
 
 function Scanner:is_at_end()
-    return self.current == self.file:len();
+    return self.start > self.file:len()
 end
 
 function Scanner:at(i)
@@ -60,14 +64,14 @@ function Scanner:skip_whitespace()
     end
 end
 
-function Scanner:identifier_or_value(type)
+function Scanner:identifier_or_literal(type)
     local type = type or TokenType.IDENTIFIER
 
     while is_aplha(self:peek()) or is_digit(self:peek()) or is_special(self:peek()) do
         local c = self:advance()
 
         if is_special(c) then
-            type = TokenType.VALUE
+            type = TokenType.LITERAL
         end
     end
 
@@ -78,7 +82,9 @@ function Scanner:scan_token()
     self:skip_whitespace()
     self.start = self.current
 
-    if self:is_at_end() then return Token:new(TokenType.EOF) end
+    if self:is_at_end() then
+        return Token:new(TokenType.EOF, self:lexeme(), self.line)
+    end
 
     local c = self:advance()
 
@@ -86,13 +92,13 @@ function Scanner:scan_token()
         return Token:new(TokenType.DOLLAR, self:lexeme(), self.line)
     elseif c == "=" then
         return Token:new(TokenType.EQUAL, self:lexeme(), self.line)
-    elseif c == '\n' then
+    elseif c == "\n" then
         self.line = self.line + 1
         return Token:new(TokenType.NEWLINE, self:lexeme(), self.line)
     elseif is_aplha(c) then
-        return self:identifier_or_value()
+        return self:identifier_or_literal()
     elseif is_digit(c) or is_special(c) then
-        return self:identifier_or_value(TokenType.VALUE)
+        return self:identifier_or_literal(TokenType.LITERAL)
     end
 
     return Token:new(TokenType.ERROR, self:lexeme(), self.line)
