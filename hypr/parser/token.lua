@@ -1,11 +1,11 @@
 TokenType = {
-    DOLLAR = {},
-    IDENTIFIER = {},
-    EQUAL = {},
-    VALUE = {},
-    NEWLINE = {},
-    EOF = {},
-    ERROR = {},
+    DOLLAR = "DOLLAR",
+    IDENTIFIER = "IDENTIFIER",
+    EQUAL = "EQUAL",
+    LITERAL = "LITERAL",
+    NEWLINE = "NEWLINE",
+    EOF = "EOF",
+    ERROR = "ERROR",
 }
 
 Token = {}
@@ -28,8 +28,8 @@ function Token:__tostring()
         return "IDENTIFIER"
     elseif self.type == TokenType.EQUAL then
         return "EQUAL"
-    elseif self.type == TokenType.VALUE then
-        return "VALUE"
+    elseif self.type == TokenType.LITERAL then
+        return "LITERAL"
     elseif self.type == TokenType.NEWLINE then
         return "NEWLINE"
     elseif self.type == TokenType.EOF then
