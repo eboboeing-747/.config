@@ -101,5 +101,6 @@ function Scanner:scan_token()
         return self:identifier_or_literal(TokenType.LITERAL)
     end
 
-    return Token:new(TokenType.ERROR, self:lexeme(), self.line)
+    local token = Token:new(TokenType.ERROR, self:lexeme(), self.line)
+    return token
 end
