@@ -11,6 +11,7 @@ function Parser:new(file)
         public.previous = Token:new(TokenType.EOF)
         public.current = Token:new(TokenType.EOF)
         public.panic_mode = false
+        public.had_error = false
 
     setmetatable(public, self)
     Parser.__index = self
@@ -46,7 +47,12 @@ end
 function Parser:variable()
     self:consume(TokenType.IDENTIFIER, "expected identifier after '$'\n")
     local name = self.previous.lexeme
-    -- TODO: check values for 'name' entry; issue an error if it is undeclared
+
+    if not self.values.data[name] then
+        self:error("undeclared identifier '" .. name .. "'\n")
+        return
+    end
+
     self.values:push(self.values.data[name])
 end
 
@@ -64,7 +70,7 @@ function Parser:expression()
 end
 
 function Parser:declaration()
-    self:variable()
+    self:consume(TokenType.IDENTIFIER, "expected identifier after '$'\n")
 
     local name = self.previous.lexeme
     self.values:next(name)
@@ -90,8 +96,10 @@ function Parser:consume(type, message)
 end
 
 function Parser:error(...)
+    if self.panic_mode then return end
+    self.had_error = true
     self.panic_mode = true
-    io.write("error: ", ...)
+    io.write("[line ", self.current.line, "] error: ", ...)
 end
 
 function Parser:syncronize()
@@ -123,4 +131,10 @@ function Parser:parse()
         end
         ::continue::
     end
+
+    if self.had_error then
+        return nil
+    end
+
+    return self.values.data
 end
