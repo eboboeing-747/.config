@@ -4,8 +4,12 @@ require("values")
 
 Parser = {}
 
-function Parser:new(file)
+function Parser:new(path)
+    io.input(path)
+    local file = io.read("*all")
+
     local public = {}
+        public.path = path
         public.values = Values:new()
         public.scanner = Scanner:new(file)
         public.previous = Token:new(TokenType.EOF)
@@ -27,7 +31,7 @@ function Parser:advance()
             break
         end
 
-        self:error()
+        self:error("unknown token: '" .. self.current.lexeme .. "'")
     end
 end
 
@@ -45,11 +49,11 @@ function Parser:match(type)
 end
 
 function Parser:variable()
-    self:consume(TokenType.IDENTIFIER, "expected identifier after '$'\n")
+    self:consume(TokenType.IDENTIFIER, "expected identifier after '$'")
     local name = self.previous.lexeme
 
     if not self.values.data[name] then
-        self:error("undeclared identifier '" .. name .. "'\n")
+        self:error("undeclared identifier '" .. name .. "'")
         return
     end
 
@@ -63,18 +67,18 @@ function Parser:expression()
         elseif self:match(TokenType.DOLLAR) then
             self:variable()
         else
-            self:error("expected a literal or a variable\n")
+            self:error("expected a literal or a variable")
             return
         end
     end
 end
 
 function Parser:declaration()
-    self:consume(TokenType.IDENTIFIER, "expected identifier after '$'\n")
+    self:consume(TokenType.IDENTIFIER, "expected identifier after '$'")
 
     local name = self.previous.lexeme
     self.values:next(name)
-    self:consume(TokenType.EQUAL, "expected '=' after identifier\n")
+    self:consume(TokenType.EQUAL, "expected '=' after identifier")
 
     self:expression()
     self.values:seal()
@@ -83,7 +87,7 @@ function Parser:declaration()
         return
     end
 
-    self:error("unterminated declaration\n")
+    self:error("unterminated declaration")
 end
 
 function Parser:consume(type, message)
@@ -99,7 +103,7 @@ function Parser:error(...)
     if self.panic_mode then return end
     self.had_error = true
     self.panic_mode = true
-    io.write("[line ", self.current.line, "] error: ", ...)
+    io.write("[parse error] at " .. self.path .. " near line " .. self.current.line .. ": ", ..., "\n")
 end
 
 function Parser:syncronize()
@@ -123,7 +127,7 @@ function Parser:parse()
         elseif self:match(TokenType.NEWLINE) then
             goto continue
         else
-            self:error("declaration starts with a '$'\n")
+            self:error("declaration starts with a '$'")
         end
 
         if self.panic_mode then
@@ -138,3 +142,4 @@ function Parser:parse()
 
     return self.values.data
 end
+

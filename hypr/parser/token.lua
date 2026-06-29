@@ -22,21 +22,5 @@ function Token:new(type, lexeme, line)
 end
 
 function Token:__tostring()
-    if self.type == TokenType.DOLLAR then
-        return "DOLLAR"
-    elseif self.type == TokenType.IDENTIFIER then
-        return "IDENTIFIER"
-    elseif self.type == TokenType.EQUAL then
-        return "EQUAL"
-    elseif self.type == TokenType.LITERAL then
-        return "LITERAL"
-    elseif self.type == TokenType.NEWLINE then
-        return "NEWLINE"
-    elseif self.type == TokenType.EOF then
-        return "EOF"
-    elseif self.type == TokenType.ERROR then
-        return "ERROR"
-    else
-        return "UNKNOWN_TOKEN"
-    end
+    return self.type
 end

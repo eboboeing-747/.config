@@ -38,6 +38,8 @@ function Values:gradient()
 end
 
 function Values:seal()
+    if not self.buffer then return false end
+
     if #self.buffer == 1 then
         self.data[self.current] = self.buffer[1]
     elseif #self.buffer == 3 then
