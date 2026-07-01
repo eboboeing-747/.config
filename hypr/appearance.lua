@@ -1,14 +1,13 @@
+local decl = require("decl")
+
 hl.config({
     general = {
         border_size = 2,
         gaps_in = 5,
         gaps_out = 10,
         col = {
-            active_border = {
-                colors = { "rgba(f39f6bee)", "rgba(a87c65ee)" },
-                angle = 270
-            },
-            inactive_border = "rgba(595959aa)"
+            active_border = decl.border_active,
+            inactive_border = decl.border_inactive,
         }
     },
     decoration = {
@@ -23,7 +22,7 @@ hl.config({
             enabled = true,
             range = 4,
             render_power = 3,
-            color = "rgba(1a1a1aee)"
+            color = decl.shadow,
         }
     }
 })

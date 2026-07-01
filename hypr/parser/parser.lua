@@ -1,6 +1,6 @@
-require("token")
-require("scanner")
-require("values")
+require("parser.token")
+require("parser.scanner")
+require("parser.values")
 
 Parser = {}
 
@@ -16,6 +16,7 @@ function Parser:new(path)
         public.current = Token:new(TokenType.EOF)
         public.panic_mode = false
         public.had_error = false
+        public.errors = {}
 
     setmetatable(public, self)
     Parser.__index = self
@@ -99,11 +100,12 @@ function Parser:consume(type, message)
     self:error(message)
 end
 
-function Parser:error(...)
+function Parser:error(message)
     if self.panic_mode then return end
     self.had_error = true
     self.panic_mode = true
-    io.write("[parse error] at " .. self.path .. " near line " .. self.current.line .. ": ", ..., "\n")
+    self.errors[#self.errors] = "[parse error] at " .. self.path .. " near line "
+        .. self.current.line .. ": " .. message
 end
 
 function Parser:syncronize()
@@ -137,9 +139,15 @@ function Parser:parse()
     end
 
     if self.had_error then
-        return nil
+        return {
+            success = false,
+            errors = self.errors,
+        }
     end
 
-    return self.values.data
+    return {
+        success = true,
+        values = self.values.data,
+    }
 end
 

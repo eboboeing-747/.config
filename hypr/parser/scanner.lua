@@ -1,4 +1,4 @@
-require("token")
+require("parser.token")
 
 local function is_aplha(c)
     return not not c:match("^[%a_]$")
