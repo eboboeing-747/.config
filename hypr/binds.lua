@@ -103,4 +103,20 @@ hl.bind("SUPER + SHIFT + M", hl.dsp.workspace.move({ monitor = "+1" }))
 hl.bind("SUPER + ALT + L", hl.dsp.focus({ workspace = "m+1", on_current_monitor = true }))
 hl.bind("SUPER + ALT + H", hl.dsp.focus({ workspace = "m-1", on_current_monitor = true }))
 
+hl.gesture({
+    fingers = 3,
+    direction = "left",
+    action = function()
+        hl.dispatch(hl.dsp.focus({ workspace = "m-1", on_current_monitor = true }))
+    end
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "right",
+    action = function()
+        hl.dispatch(hl.dsp.focus({ workspace = "m+1", on_current_monitor = true }))
+    end
+})
+
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
