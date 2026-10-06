@@ -14,17 +14,20 @@ end)
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind("SUPER + UP", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
 hl.bind("SUPER + DOWN", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
--- TODO: -- bind = $mainMod, left, exec, brightnessctl s 10%-
--- TODO: -- bind = $mainMod, right, exec, brightnessctl s +10%
+hl.bind("SUPER + F2", hl.dsp.exec_cmd("brightnessctl s 10%-"))
+hl.bind("SUPER + F3", hl.dsp.exec_cmd("brightnessctl s +10%"))
 -- TODO: -- bindl = , switch:on:Lid Switch, exec, hyprlock
 
 -- spawn new | kill
 hl.bind("SUPER + C", hl.dsp.window.close("activewindow"))
-hl.bind("SUPER + T", hl.dsp.exec_cmd(decl.terminal))
+hl.bind("SUPER + T", hl.dsp.exec_cmd(decl.terminal, {
+    fullscreen_state = "0 0",
+}))
 hl.bind("SUPER + I", hl.dsp.exec_cmd(decl.terminal, {
     float = true,
     size = { "monitor_w * " .. float_factor, "monitor_h * " .. float_factor },
-    center = true
+    center = true,
+    fullscreen_state = "0 0",
 }))
 hl.bind("SUPER + R", hl.dsp.exec_cmd(decl.launcher))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(decl.browser))
