@@ -7,6 +7,7 @@ alias pbpaste='xclip -selection clipboard -o' # paste from clipboard
 alias ls='lsd'
 alias tree='lsd --tree -I node_modules -I bin -I obj'
 alias grep='grep --color=auto'
+alias sspnd='systemctl suspend'
 
 alias pgctl='pg_ctl'
 
@@ -52,4 +53,49 @@ mon() {
 
     echo -e "arguments not understood;\nusage: mon [on|off]"
     return 1
+}
+
+inetmh() {
+    if (( "$#" > 1 )); then
+        echo -e "arguments not understood;\nusage: inet [up|down]"
+        return 1
+    fi
+
+    local current_ssid=$(nmcli con show --active | awk '/wifi/{ print $1 }')
+
+    toggle() {
+        nmcli con down $current_ssid
+        nmcli con up $MH_SSID
+    }
+
+    if [ "$1" = "up" ]; then
+         if [ "$current_ssid" = "$MH_SSID" ]; then
+             echo "already connected to $MH_SSID"
+         elif [ "$current_ssid" = "" ]; then
+             nmcli con up $MH_SSID
+         else
+             toggle
+         fi
+         return 0
+     elif [ "$1" = "down" ]; then
+         if [ "$current_ssid" = "" ]; then
+             echo "already no connections"
+         fi
+         if [ "$current_ssid" = "$MH_SSID" ]; then
+             nmcli con down $MH_SSID
+         fi
+         return 0
+    fi
+
+    if [ "$current_ssid" = "$MH_SSID" ]; then
+        nmcli con down $MH_SSID
+    elif [ "$current_ssid" = "" ]; then
+        nmcli con up $MH_SSID
+        return 0
+    elif [ "$current_ssid" != "$MH_SSID" ]; then
+        toggle
+        return 0
+    fi
+
+    unset -f toggle
 }
