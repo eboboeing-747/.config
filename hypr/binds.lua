@@ -102,6 +102,13 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize())
 -- manipulate workspace (focus | location)
 hl.bind("SUPER + D", hl.dsp.focus({ workspace = "emptym" }))
 hl.bind("SUPER + SHIFT + M", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind("SUPER + ALT + S", function()
+    local monitors = hl.get_monitors()
+    if #monitors ~= 2 then return end
+    hl.dispatch(hl.dsp.workspace.swap_monitors({
+        monitor1 = monitors[1].name, monitor2 = monitors[2].name,
+    }))
+end)
 
 hl.bind("SUPER + ALT + L", hl.dsp.focus({ workspace = "m+1", on_current_monitor = true }))
 hl.bind("SUPER + ALT + H", hl.dsp.focus({ workspace = "m-1", on_current_monitor = true }))
