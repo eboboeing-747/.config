@@ -13,7 +13,6 @@ alias pgctl='pg_ctl'
 
 alias tnew='tmux new -s $(basename $(pwd))'
 
-export dev=/mnt/shared/dev/
 export SUDO_EDITOR=/usr/bin/nvim
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
