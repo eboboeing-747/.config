@@ -16,6 +16,9 @@ hl.bind("SUPER + UP", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 hl.bind("SUPER + DOWN", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
 hl.bind("SUPER + F2", hl.dsp.exec_cmd("brightnessctl s 10%-"))
 hl.bind("SUPER + F3", hl.dsp.exec_cmd("brightnessctl s +10%"))
+hl.config({
+    misc = { middle_click_paste = false, },
+})
 -- TODO: -- bindl = , switch:on:Lid Switch, exec, hyprlock
 
 -- spawn new | kill
