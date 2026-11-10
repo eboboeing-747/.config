@@ -30,3 +30,5 @@
 !wlogout/**
 !git
 !git/**
+!lsd
+!lsd/**
