@@ -4,6 +4,7 @@
 alias pbcopy='xclip -selection clipboard' # copy to clipboard
 alias pbpaste='xclip -selection clipboard -o' # paste from clipboard
 
+alias gs='git status'
 alias ls='lsd'
 alias tree='lsd --tree -I node_modules -I bin -I obj'
 alias grep='grep --color=auto'
